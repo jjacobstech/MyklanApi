@@ -10,7 +10,7 @@
 
 - **POST** `/login`: Handles login.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > Fields
 - - - > email, password
@@ -19,7 +19,7 @@
 
 - **POST** `/register`: Handles registration.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > name,
 - - - > email
@@ -35,7 +35,7 @@
 
 - **POST** `/verify/2fa`: Handles 2FA authentication
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > code( user 2FA code received by email)
 - - - > user(this is the id of the user gotten after from the login route)
@@ -44,7 +44,7 @@
 
 - **POST** `/2fa/resend`: Handles resend of 2FA code
 
-- -**_Fields _**
+- - **_Fields_**
 
 - - - > user (id of the user currently trying to get 2fa code)
 
@@ -58,7 +58,7 @@
 
 - **POST** `/update/password`: Handles password change
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > old_password
 - - - > new_password(minimum of 6 characters)
@@ -69,7 +69,7 @@
 
 - **POST** `/update/user` : Updates the current user's settings.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > full_name
 - - - > username
@@ -109,7 +109,7 @@
 
 - **POST** `/block/countries` : Blocks a country.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > countries - value should be in this format "NG,GH" if adding more that one country,another country can be added by adding a comma and a the country_code, to get the country_code available use '/countries - GET' route
 
@@ -119,7 +119,7 @@
 
 - **GET** `/get/data/chart/{slug}` : Returns chart data.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > range : `month`,`lastmonth`,`year`
 
@@ -141,13 +141,13 @@
 
 - **POST** `/upload/avatar`: `UserController@uploadAvatar` : Uploads an avatar.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > avatar - `image to be uploaded`
 
 - **POST** `/upload/cover`: `UserController@uploadCover` : Uploads a cover image.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > cover - `image to be uploaded`
 
@@ -159,7 +159,7 @@
 
 - **POST** `/buy/subscription`: `SubscriptionsController@buy` : Buys a subscription.
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > id : `id of creator`
 - - - > interval : weekly, monthly, quaterly,bianually
@@ -183,12 +183,12 @@
 
 - **GET** `/announcements`: `UserController@announcements`: Returns announcements.
 
-### Posts []
+### Posts
 
-- **GET** `/myposts`: `UserController@myPosts` : Returns the current user's posts.
-- **POST** `/post`: `UpdatesController@create` : Creates a new post.
+**GET** `/myposts`: `UserController@myPosts` : Returns the current user's posts.
+**POST** `/post`: `UpdatesController@create` : Creates a new post.
 
-- - **_Fields _**
+- **_Fields _**
 
 - - - > fileuploader-list-photo[] - `multi file uploader for posting images, audio, videos : max 500MB`
 - - - > zip - `zip file for upload`
@@ -197,11 +197,11 @@
 - - - > title
 - - - > price `leave empty if not adding price`
 
-- **GET** `/post/edit/{id}`: `UpdatesController@edit`: Returns a post for editing by ID.
+**GET** `/post/edit/{id}`: `UpdatesController@edit`: Returns a post for editing or Viewing by ID.
 
-- **POST** `/post/edit`: `UpdatesController@postEdit`: Updates a post.
+**POST** `/post/edit`: `UpdatesController@postEdit`: Updates a post.
 
-- - **_Fields _**
+- **_Fields _**
 
 - - - > id `id of post to edit`
 - - - > zip - `zip file for upload`
@@ -211,9 +211,26 @@
 - - - > price `leave empty if not adding price`
 
 - **POST** `/upload/media`: `UploadMediaController@store` : Media uploader for editing post
-- **POST** `/delete/media`: `UploadMediaController@delete` : Media delete for editing post
-- **POST** `/update/delete/{id}`: `UpdatesController@delete`: Deletes a post.
-- **POST** `/like/post/{id}`: `UserController@like` : Like a post
+
+- **_Fields _**
+
+- - - > post_id  `id of post to upload for`
+
+- - - > media `file to upload` : `allowed extension ,where extension = [.jpg, .jpeg, .png, .ief, .mp3, .mpeg, .mp4] etc`
+
+**POST** `/delete/media`: `UploadMediaController@delete` : Media delete to delete a specific media on a post : For editing post
+
+- **_Fields _**
+
+- - - > file `name of file to delete` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3] etc`
+
+**POST** `/post/delete/{id}`: `UpdatesController@delete`: Deletes a post.
+
+- - - > where {id} is id of post to delete
+
+**POST** `/like/post/{id}`: `UserController@like` : Like a post
+
+- - - > where {id} is id of post to like
 
 ### Dark Mode
 
@@ -232,61 +249,71 @@
 
 - **POST** `/settings/conversations/update`: `UserController@updateConversations` : Update conversation settings
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > allow_dm - `1 / 0`
 - - - > send_welcome_message - `1 / 0`
 - - - > message - `welcome message text`
 - - - > price_welcome_message - `set price for welcome message`
 
-### Welcome Message Media []
+### Welcome Message Media
 
 - **POST** `/upload/welcome/message/media`: `UploadMediaWelcomeMessageController@store` : Media uploader for welcome message
+
+- - - > media - `file to upload for welcome message` : `allowed extensions = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
+
 - **POST** `/delete/welcome/message/media`: `UploadMediaWelcomeMessageController@delete` : Media delete for welcome message
+
+- - - > file - `file to upload for welcome message` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
 
 ### Delete Cover
 
 - **POST** `/delete/cover`: `UserController@deleteImageCover` : Delete cover image
 
-### Account []
+### Account [Last test]
 
 - **POST** `/account/delete`: `UserController@deleteAccount` : Delete account
-- **POST** `/account/deactivate`: `UserController@deactivateAccount` : Deactivate account
 
 ### Transfer Balance
 
 - **POST** `/transfer/balance`: `UserController@transferBalance` : Transfer balance to wallet
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > amount - `amount to transfer`
 
-### Reports []
+### Reports
 
-- **POST** `/report/item/{id}`: `ProductsController@report` : Report item in shop
+- **POST** `/report/item`: `ProductsController@report` : Report item in shop
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > id - `product to report`
 - - - > reason - `item_not_received, spoofing, copyright, privacy_issue, violent_sexual, fraud`
 
-- **POST** `/report/post/{id}`: `UpdatesController@report` : Repost post
+- **POST** `/report/post`: `UpdatesController@report` : Repost post
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > id - `post to report`
 - - - > reason - `copyright, privacy_issue, violent_sexual`
 
-- **POST** `/report/creator/{id}`: `UserController@reportCreator` : Report creator
+- **POST** `/report/creator`: `UserController@reportCreator` : Report creator
 
 - - **_Fields_**
 
 - - - > id - `user to report`
 - - - > reason - `spoofing, copyright, privacy_issue, violent_sexual, spam, fraud, under_age`
 
-### Pay-Per-View []
+### Pay-Per-View
 
 - **POST** `/send/ppv`: `PayPerViewController@send` : Pay for a post or message
+
+- - **_Fields_**
+
+- - - > id - `user to send to`
+- - - > amount - `amount to pay`
+- - - > payment_gateway_ppv  - `wallet`
 
 ### Comments []
 
@@ -314,24 +341,24 @@
 - - **_Fields_**
 
 - - - > price_weekly - `price for weekly subscription`
-      > status_weekly - `status for weekly subscription 1 / 0`
-      > price - `price for monthly subscription`
-      > price_quaterly - `price for quaterly subscription`
-      > status_quaterly - `status for quaterly subscription 1 / 0`
-      > price_biannually - `price for bianuually subscription`
-      > status_biannually - `status for biannually subscription 1 / 0`
-      > price_yearly - `price for yearly subscription`
-      > status_yearly - `status for yearly subscription 1 / 0`
-      > free_subscription - `yes / no`
+- - - > status_weekly - `status for weekly subscription 1 / 0`
+- - - > price - `price for monthly subscription`
+- - - > price_quaterly - `price for quaterly subscription`
+- - - > status_quaterly - `status for quaterly subscription 1 / 0`
+- - - > price_biannually - `price for bianuually subscription`
+- - - > status_biannually - `status for biannually subscription 1 / 0`
+- - - > price_yearly - `price for yearly subscription`
+- - - > status_yearly - `status for yearly subscription 1 / 0`
+- - - > free_subscription - `yes / no`
 
-### Privacy and Security 
+### Privacy and Security
 
 - **GET** `/privacy/security`: `UserController@privacySecurity` : Get list of privacy settings [Refine this]
 
 - **POST** `/update/privacy/security`: `UserController@savePrivacySecurity` : Update privacy settings
   
 - - **_Fields_**
-    
+
 - - -> hide_profile - `yes / no`
 - - -> hide_last_seen - `yes / no`
 - - -> hide_count_subscribers - `yes / no`
@@ -456,7 +483,7 @@
 
 - **POST** `/send/tip`: `TipController@send` : Send tip to a 
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > id - `user to send tip`
 - - - > amount - `amount to send`
