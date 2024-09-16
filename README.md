@@ -279,7 +279,7 @@
 
 - **POST** `/report/creator/{id}`: `UserController@reportCreator` : Report creator
 
-- - **_Fields _**
+- - **_Fields_**
 
 - - - > id - `user to report`
 - - - > reason - `spoofing, copyright, privacy_issue, violent_sexual, spam, fraud, under_age`
@@ -306,15 +306,40 @@
 
 - **GET** `/settings/restrictions`: `UserController@restrictions` : Get a list of restricted users
 
-### Subscription Settings []
+### Subscription Settings
 
 - **GET** `/settings/subscription`: `UserController@settingsSubscription` : Get list of subscription settings
 - **POST** `/settings/subscription`: `UserController@saveSubscription` : Update subscription settings
 
-### Privacy and Security []
+- - **_Fields_**
 
-- **GET** `/privacy/security`: `UserController@privacySecurity` : Get list of privacy settings
+- - - > price_weekly - `price for weekly subscription`
+      > status_weekly - `status for weekly subscription 1 / 0`
+      > price - `price for monthly subscription`
+      > price_quaterly - `price for quaterly subscription`
+      > status_quaterly - `status for quaterly subscription 1 / 0`
+      > price_biannually - `price for bianuually subscription`
+      > status_biannually - `status for biannually subscription 1 / 0`
+      > price_yearly - `price for yearly subscription`
+      > status_yearly - `status for yearly subscription 1 / 0`
+      > free_subscription - `yes / no`
+
+### Privacy and Security 
+
+- **GET** `/privacy/security`: `UserController@privacySecurity` : Get list of privacy settings [Refine this]
+
 - **POST** `/update/privacy/security`: `UserController@savePrivacySecurity` : Update privacy settings
+  
+- - **_Fields_**
+    
+- - -> hide_profile - `yes / no`
+- - -> hide_last_seen - `yes / no`
+- - -> hide_count_subscribers - `yes / no`
+- - -> hide_my_country - `yes / no`
+- - -> show_my_birthdate - `yes / no`
+- - -> active_status_online - `yes / no`
+- - -> two_factor_auth - `yes / no`
+- - -> posts_privacy - `1 / 0`
 
 ### Advertising
 
@@ -427,9 +452,15 @@
 - **POST** `/message/delete`: `MessagesController@delete` : Delete a message
 - **POST** `/conversation/delete/{id}`: `MessagesController@deleteChat` : Delete conversation with a user
 
-### Tips []
+### Tips
 
-- **POST** `/send/tip`: `TipController@send` : Send tip to a user
+- **POST** `/send/tip`: `TipController@send` : Send tip to a 
+
+- - **_Fields _**
+
+- - - > id - `user to send tip`
+- - - > amount - `amount to send`
+- - - > payment_gateway_tip - `value = wallet`
 
 ### Other User Profile
 
