@@ -1,5 +1,7 @@
 # MyklanApi
+
 - Myklan Api V1
+
 # **_Myklan Api Routes_**
 
 ## API Endpoints
@@ -260,9 +262,13 @@
 
 - **POST** `/upload/welcome/message/media`: `UploadMediaWelcomeMessageController@store` : Media uploader for welcome message
 
+- - **_Fields_**
+
 - - - > media - `file to upload for welcome message` : `allowed extensions = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
 
 - **POST** `/delete/welcome/message/media`: `UploadMediaWelcomeMessageController@delete` : Media delete for welcome message
+
+- - **_Fields_**
 
 - - - > file - `file to upload for welcome message` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
 
@@ -270,9 +276,13 @@
 
 - **POST** `/delete/cover`: `UserController@deleteImageCover` : Delete cover image
 
-### Account [Last test]
+### Account [To be Last test]
 
 - **POST** `/account/delete`: `UserController@deleteAccount` : Delete account
+
+- - **_Fields_**
+
+- - - > password - `user password`
 
 ### Transfer Balance
 
@@ -315,13 +325,40 @@
 - - - > amount - `amount to pay`
 - - - > payment_gateway_ppv  - `wallet`
 
-### Comments []
+### Comments
 
 - **GET** `/load/comments`: `CommentsController@loadmore` : Get comments for a post
+
+- - **_Fields_**
+
+- - - > post_id - `post to load comment from`
+
 - **POST** `/comment/post`: `CommentsController@store` : Comment on a post
+
+- - **_Fields_**
+
+- - - > post_id - `post to comment on`
+- - - > comment - `comment from user`
+- - - > isReply - `id of comment / reply, to reply to` :  this format [@techdemigod39 Happy testing reply ]should he used  when commenting to a reply under a comment to form a thread
+
 - **POST** `/edit/comment`: `CommentsController@edit` : Edit comment
+
+- - **_Fields_**
+
+- - - > id - `comment or reply to edit`
+- - - > comment - `text to replace former text`
+- - - > isReply - `true / false` :  `if true the the reply with the specified id is edited ,if false the comment with the specified id is edited`
+
 - **POST** `/delete/comment/{id}`: `CommentsController@destroy` : Delete comment
+
+- - - > where {id} is the id of the post to be deleted
+
 - **POST** `/like/comment`: `CommentsController@like` : Like comment
+
+- - **_Fields_**
+
+- - - > comment_id - `comment or reply to like`
+- - - > typeComment - `value = isComment if like is for a comment , value = isReply if like is for a reply`
 
 ### Restrict User
 
@@ -418,9 +455,9 @@
 - **GET** `/category/{slug}/{type?}`: `HomeController@category` : Get category
 
 - - > (where slug -> artist, designer, drawing-and-painting, developer ,animation, photography, video-and-film ,podcasts ,others ,writing and type -> featured, new, free, more-active)
-- - - > https://api.myklan.africa/public/api/category/developer?gender=male (search by gender)
+- - - > <https://api.myklan.africa/public/api/category/developer?gender=male> (search by gender)
 
-- - - > https://api.myklan.africa/public/api/category/developer/free?gender=male
+- - - > <https://api.myklan.africa/public/api/category/developer/free?gender=male>
 
 - - - > {type?} can be empty if filtering in not needed
 
@@ -445,6 +482,7 @@
 ### Wallet
 
 - **GET** `/my/wallet`: `AddFundsController@wallet` : Get wallet and balance info
+
 - **GET** `/deposits/invoice/{id}`: `UserController@invoiceDeposits` : Get deposit invoice by id
 
 ### Shop []
@@ -481,7 +519,7 @@
 
 ### Tips
 
-- **POST** `/send/tip`: `TipController@send` : Send tip to a 
+- **POST** `/send/tip`: `TipController@send` : Send tip to a
 
 - - **_Fields_**
 
