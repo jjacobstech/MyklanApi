@@ -487,7 +487,7 @@
 
 - **GET** `/deposits/invoice/{id}`: `UserController@invoiceDeposits` : Get deposit invoice by id
 
-### Shop 
+### Shop
 
 - **GET** `/shop`: `ProductsController@index` : Get shop
 - **GET** `/shop/product/{id}`: `ProductsController@show` : Get product by id
