@@ -586,18 +586,44 @@
 - **GET** `/my/payments/received`: `UserController@myPayments` : Get list of payments received
 - **GET** `/payments/invoice/{id}`: `UserController@invoice` : Get pay invoice
 
-### Messages []
+### Messages
 
-- **GET** `/messages`: `MessagesController@inbox` : Get current message in inbox
+- **GET** `/messages`: `MessagesController@inbox` : Get current messages in inbox : `replication of https://myklan.africa/messages`
+
 - **GET** `/messages/{id}/{username?}`: `MessagesController@messages` : Get all message from/to a user by id (where id is a number)
+
+- - - > `where {id} is the user id of the user to get messages to/from`
+
 - **POST** `/message/send`: `MessagesController@send` : Send message to a user
+
+- - **_Fields_**
+
+- - - > fileuploader-list-media[] : `pictures, audio or video to send to user`
+- - - > id_user : `id of user to send  message to`
+- - - > message : `message to user`
+- - - > zip : `zip file to send to user`
+- - - > epub : `epub file to send to user`
+
+
 - **GET** `/messages/search/creator`: `MessagesController@searchCreator` : Search for creator in messages page
+
+- - **_Fields_**
+
+- - - > user : `name of creator to search; with just 3 letter the search can be initiated`
+
 - **POST** `/message/delete`: `MessagesController@delete` : Delete a message
+
+- - **_Fields_**
+
+- - - > message_id : `id of message to delete`
+
 - **POST** `/conversation/delete/{id}`: `MessagesController@deleteChat` : Delete conversation with a user
+
+- - - > `where {id} is the user id of the user to delete chats`
 
 ### Tips
 
-- **POST** `/send/tip`: `TipController@send` : Send tip to a user
+- **POST** `/send/tip`: `TipController@send` : Send tip to a user : can be used in messaging and post
 
 - - **_Fields_**
 
