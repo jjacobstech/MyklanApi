@@ -1,8 +1,8 @@
 # MyklanApi
 
-- Myklan Api V1
+## **_Myklan Api V1_**
 
-# **_Myklan Api Routes_**
+## **_Myklan Api Routes_**
 
 ## API Endpoints
 
@@ -15,7 +15,8 @@
 - - **_Fields_**
 
 - - - > Fields
-- - - > email, password
+- - - > email,
+- - - > password
 
 ### Register
 
@@ -26,8 +27,8 @@
 - - - > name,
 - - - > email
 - - - > password
-- - - > agree = 1(this is constant)
-- - - > g-recaptcha-response('recaptcha response if recaptcha is activated by admin')
+- - - > agree : `1(this is constant)`
+- - - > g-recaptcha-response : `recaptcha response if recaptcha is activated by admin`
 
 ### Languages
 
@@ -39,8 +40,8 @@
 
 - - **_Fields_**
 
-- - - > code( user 2FA code received by email)
-- - - > user(this is the id of the user gotten after from the login route)
+- - - > code : `user 2FA code received by email`
+- - - > user : `this is the id of the user gotten after from the login route`
 
 ### 2FA Resend
 
@@ -48,7 +49,7 @@
 
 - - **_Fields_**
 
-- - - > user (id of the user currently trying to get 2fa code)
+- - - > user : `id of the user currently trying to get 2fa code`
 
 ### Private Routes (Require Authentication - Bearer Token)
 
@@ -94,18 +95,18 @@
 - - - > threads
 - - - > kick
 - - - > story
-- - - > countries_id - Note: 159 for Nigeria - to get the id of countries use endpoint /countries route
+- - - > countries_id : `Note: 159 for Nigeria - to get the id of countries use endpoint /countries route`
 - - - > city
 - - - > address
-- - - > zip - zip/postal no
+- - - > zip - `zip/postal no`
 - - - > profession
-- - - > birthdate - Format - 09/13/2004 - MM/DD/YYYY
+- - - > birthdate  : `Format - 09/13/2004 - MM/DD/YYYY`
 - - - > categories_id
 - - - > company
 - - - > story
 - - - > gender
-- - - > language - Options - en,es - to get the abbreviation of languages use endpoint /languages route
-- - - > hide_name - Options - Yes or No
+- - - > language : `Options - en,es - to get the abbreviation of languages use endpoint /languages route`
+- - - > hide_name : `Options - Yes or No`
 
 - **GET** `/blocked/countries` : Returns a list of blocked countries.
 
@@ -113,7 +114,7 @@
 
 - - **_Fields_**
 
-- - - > countries - value should be in this format "NG,GH" if adding more that one country,another country can be added by adding a comma and a the country_code, to get the country_code available use '/countries - GET' route
+- - - > countries : `value should be in this format "NG,GH" if adding more that one country,another country can be added by adding a comma and a the country_code, to get the country_code available use '/countries - GET' route`
 
 ### Dashboard
 
@@ -123,7 +124,7 @@
 
 - - **_Fields_**
 
-- - - > range : `month`,`lastmonth`,`year`
+- - - > range :`month, lastmonth, year`
 
 ### Stories
 
@@ -151,7 +152,7 @@
 
 - - **_Fields_**
 
-- - - > cover - `image to be uploaded`
+- - - > cover :`image to be uploaded`
 
 ### Subscriptions
 
@@ -192,12 +193,12 @@
 
 - **_Fields _**
 
-- - - > fileuploader-list-photo[] - `multi file uploader for posting images, audio, videos : max 500MB`
-- - - > zip - `zip file for upload`
-- - - > epub - `epub file upload`
-- - - > description `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
+- - - > fileuploader-list-photo[] : `multi file uploader for posting images, audio, videos : max 500MB`
+- - - > zip : `zip file for upload`
+- - - > epub : `epub file upload`
+- - - > description  : `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
 - - - > title
-- - - > price `leave empty if not adding price`
+- - - > price  : `leave empty if not adding price`
 
 **GET** `/post/edit/{id}`: `UpdatesController@edit`: Returns a post for editing or Viewing by ID.
 
@@ -205,34 +206,34 @@
 
 - **_Fields _**
 
-- - - > id `id of post to edit`
-- - - > zip - `zip file for upload`
-- - - > epub - `epub file upload`
-- - - > description `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
+- - - > id  : `id of post to edit`
+- - - > zip : `zip file for upload`
+- - - > epub : `epub file upload`
+- - - > description  : `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
 - - - > title
-- - - > price `leave empty if not adding price`
+- - - > price : `leave empty if not adding price`
 
 - **POST** `/upload/media`: `UploadMediaController@store` : Media uploader for editing post
 
 - **_Fields _**
 
-- - - > post_id  `id of post to upload for`
+- - - > post_id  : `id of post to upload for`
 
-- - - > media `file to upload` : `allowed extension ,where extension = [.jpg, .jpeg, .png, .ief, .mp3, .mpeg, .mp4] etc`
+- - - > media : `file to upload` : `allowed extension ,where extension = [.jpg, .jpeg, .png, .ief, .mp3, .mpeg, .mp4] etc`
 
 **POST** `/delete/media`: `UploadMediaController@delete` : Media delete to delete a specific media on a post : For editing post
 
 - **_Fields _**
 
-- - - > file `name of file to delete` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3] etc`
+- - - > file : `name of file to delete` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3] etc`
 
 **POST** `/post/delete/{id}`: `UpdatesController@delete`: Deletes a post.
 
-- - - > where {id} is id of post to delete
+- - - > `where {id} is id of post to delete`
 
 **POST** `/like/post/{id}`: `UserController@like` : Like a post
 
-- - - > where {id} is id of post to like
+- - - > `where {id} is id of post to like`
 
 ### Dark Mode
 
@@ -247,16 +248,16 @@
 
 - **GET** `/settings/conversations`: `UserController@settingsConversations` : Load User conversation settings page
 
-- - > preloaded_file in response is the data of media for welcome message
+- - > `preloaded_file in response is the data of media for welcome message`
 
 - **POST** `/settings/conversations/update`: `UserController@updateConversations` : Update conversation settings
 
 - - **_Fields_**
 
-- - - > allow_dm - `1 / 0`
-- - - > send_welcome_message - `1 / 0`
-- - - > message - `welcome message text`
-- - - > price_welcome_message - `set price for welcome message`
+- - - > allow_dm : `1 / 0`
+- - - > send_welcome_message : `1 / 0`
+- - - > message : `welcome message text`
+- - - > price_welcome_message : `set price for welcome message`
 
 ### Welcome Message Media
 
@@ -264,13 +265,13 @@
 
 - - **_Fields_**
 
-- - - > media - `file to upload for welcome message` : `allowed extensions = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
+- - - > media : `file to upload for welcome message` : `allowed extensions = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
 
 - **POST** `/delete/welcome/message/media`: `UploadMediaWelcomeMessageController@delete` : Media delete for welcome message
 
 - - **_Fields_**
 
-- - - > file - `file to upload for welcome message` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
+- - - > file : `file to upload for welcome message` : `ex. file_name.extension ,where extension = [.jpg, .png, .zip , .ief, .mp3, .pdf, .zip, .epub, .mp4] etc`
 
 ### Delete Cover
 
@@ -282,7 +283,7 @@
 
 - - **_Fields_**
 
-- - - > password - `user password`
+- - - > password : `user password`
 
 ### Transfer Balance
 
@@ -290,7 +291,7 @@
 
 - - **_Fields_**
 
-- - - > amount - `amount to transfer`
+- - - > amount :`amount to transfer`
 
 ### Reports
 
@@ -298,22 +299,22 @@
 
 - - **_Fields_**
 
-- - - > id - `product to report`
-- - - > reason - `item_not_received, spoofing, copyright, privacy_issue, violent_sexual, fraud`
+- - - > id :`product to report`
+- - - > reason :`item_not_received, spoofing, copyright, privacy_issue, violent_sexual, fraud`
 
 - **POST** `/report/post`: `UpdatesController@report` : Repost post
 
 - - **_Fields_**
 
-- - - > id - `post to report`
-- - - > reason - `copyright, privacy_issue, violent_sexual`
+- - - > id : `post to report`
+- - - > reason : `copyright, privacy_issue, violent_sexual`
 
 - **POST** `/report/creator`: `UserController@reportCreator` : Report creator
 
 - - **_Fields_**
 
-- - - > id - `user to report`
-- - - > reason - `spoofing, copyright, privacy_issue, violent_sexual, spam, fraud, under_age`
+- - - > id : `user to report`
+- - - > reason : `spoofing, copyright, privacy_issue, violent_sexual, spam, fraud, under_age`
 
 ### Pay-Per-View
 
@@ -321,9 +322,9 @@
 
 - - **_Fields_**
 
-- - - > id - `user to send to`
-- - - > amount - `amount to pay`
-- - - > payment_gateway_ppv  - `wallet`
+- - - > id : `user to send to`
+- - - > amount : `amount to pay`
+- - - > payment_gateway_ppv : `wallet`
 
 ### Comments
 
@@ -331,40 +332,40 @@
 
 - - **_Fields_**
 
-- - - > post_id - `post to load comment from`
+- - - > post_id  : `post to load comment from`
 
 - **POST** `/comment/post`: `CommentsController@store` : Comment on a post
 
 - - **_Fields_**
 
-- - - > post_id - `post to comment on`
-- - - > comment - `comment from user`
-- - - > isReply - `id of comment / reply, to reply to` :  this format [@techdemigod39 Happy testing reply ]should he used  when commenting to a reply under a comment to form a thread
+- - - > post_id : `post to comment on`
+- - - > comment : `comment from user`
+- - - > isReply : `id of comment / reply, to reply to` :  `this format [@techdemigod39 Happy testing reply ]should he used  when commenting to a reply under a comment to form a thread`
 
 - **POST** `/edit/comment`: `CommentsController@edit` : Edit comment
 
 - - **_Fields_**
 
-- - - > id - `comment or reply to edit`
-- - - > comment - `text to replace former text`
-- - - > isReply - `true / false` :  `if true the the reply with the specified id is edited ,if false the comment with the specified id is edited`
+- - - > id : `comment or reply to edit`
+- - - > comment : `text to replace former text`
+- - - > isReply : `true / false` :  `if true the the reply with the specified id is edited ,if false the comment with the specified id is edited`
 
 - **POST** `/delete/comment/{id}`: `CommentsController@destroy` : Delete comment
 
-- - - > where {id} is the id of the post to be deleted
+- - - > `where {id} is the id of the post to be deleted`
 
 - **POST** `/like/comment`: `CommentsController@like` : Like comment
 
 - - **_Fields_**
 
-- - - > comment_id - `comment or reply to like`
-- - - > typeComment - `value = isComment if like is for a comment , value = isReply if like is for a reply`
+- - - > comment_id : `comment or reply to like`
+- - - > typeComment : `value = isComment if like is for a comment , value = isReply if like is for a reply`
 
 ### Restrict User
 
 - **POST** `/restrict/user/{id}`: `UserController@restrictUser` : Restrict a user
 
-- - > where {id} is user_id of user to restrict, run first time to restrict, run again to remove restriction
+- - > `where {id} is user_id of user to restrict, run first time to restrict, run again to remove restriction`
 
 ### Restrictions
 
@@ -377,16 +378,16 @@
 
 - - **_Fields_**
 
-- - - > price_weekly - `price for weekly subscription`
-- - - > status_weekly - `status for weekly subscription 1 / 0`
-- - - > price - `price for monthly subscription`
-- - - > price_quaterly - `price for quaterly subscription`
-- - - > status_quaterly - `status for quaterly subscription 1 / 0`
-- - - > price_biannually - `price for bianuually subscription`
-- - - > status_biannually - `status for biannually subscription 1 / 0`
-- - - > price_yearly - `price for yearly subscription`
-- - - > status_yearly - `status for yearly subscription 1 / 0`
-- - - > free_subscription - `yes / no`
+- - - > price_weekly : `price for weekly subscription`
+- - - > status_weekly : `status for weekly subscription 1 / 0`
+- - - > price : `price for monthly subscription`
+- - - > price_quaterly : `price for quaterly subscription`
+- - - > status_quaterly : `status for quaterly subscription 1 / 0`
+- - - > price_biannually : `price for bianuually subscription`
+- - - > status_biannually : `status for biannually subscription 1 / 0`
+- - - > price_yearly : `price for yearly subscription`
+- - - > status_yearly : `status for yearly subscription 1 / 0`
+- - - > free_subscription : `yes / no`
 
 ### Privacy and Security
 
@@ -396,14 +397,14 @@
   
 - - **_Fields_**
 
-- - -> hide_profile - `yes / no`
-- - -> hide_last_seen - `yes / no`
-- - -> hide_count_subscribers - `yes / no`
-- - -> hide_my_country - `yes / no`
-- - -> show_my_birthdate - `yes / no`
-- - -> active_status_online - `yes / no`
-- - -> two_factor_auth - `yes / no`
-- - -> posts_privacy - `1 / 0`
+- - - > hide_profile : `yes / no`
+- - - > hide_last_seen  : `yes / no`
+- - - > hide_count_subscribers : `yes / no`
+- - - > hide_my_country : `yes / no`
+- - - > show_my_birthdate : `yes / no`
+- - - > active_status_online : `yes / no`
+- - - > two_factor_auth : `yes / no`
+- - - > posts_privacy : `1 / 0`
 
 ### Advertising
 
@@ -417,7 +418,7 @@
 
 - **GET** `/download/file/{id}`: `UserController@downloadFile` : Download a zip file attached to a post
 
-- - > where {id} is the id of the post the file belongs
+- - > `where {id} is the id of the post the file belongs`
 
 ### Sales
 
@@ -448,18 +449,18 @@
 
 - **GET** `/creators/{type?}`: `HomeController@creators` : Get list of creators or filter by {type} where type -> featured, new, more-active, free
 
-- - > {type} can be empty if filtering in not needed
+- - - > `{type} can be empty if filtering in not needed`
 
 ### Category
 
 - **GET** `/category/{slug}/{type?}`: `HomeController@category` : Get category
 
-- - > (where slug -> artist, designer, drawing-and-painting, developer ,animation, photography, video-and-film ,podcasts ,others ,writing and type -> featured, new, free, more-active)
-- - - > <https://api.myklan.africa/public/api/category/developer?gender=male> (search by gender)
+- - - > `(where slug -> artist, designer, drawing-and-painting, developer ,animation, photography, video-and-film ,podcasts ,others ,writing and type -> featured, new, free, more-active)`
+- - - > `<https://api.myklan.africa/public/api/category/developer?gender=male> (search by gender)`
 
-- - - > <https://api.myklan.africa/public/api/category/developer/free?gender=male>
+- - - > `<https://api.myklan.africa/public/api/category/developer/free?gender=male>`
 
-- - - > {type?} can be empty if filtering in not needed
+- - - > `{type?} can be empty if filtering in not needed`
 
 ### Categories
 
@@ -471,9 +472,10 @@
 
 ### Notifications
 
-- **GET** `/notifications/{type?}`: `UserController@notifications` : Get notifications where {type} -> likes, tips, mentions, subsciptions, Live streaming
+- **GET** `/notifications/{type?}`: `UserController@notifications` : Get notifications
+- - - > `where {type} -> likes, tips, mentions, subsciptions, Live streaming`
 
-- - > {type} can be empty if filtering in not needed
+- - - > `{type} can be empty if filtering in not needed`
 
 ### Verification
 
@@ -485,18 +487,94 @@
 
 - **GET** `/deposits/invoice/{id}`: `UserController@invoiceDeposits` : Get deposit invoice by id
 
-### Shop []
+### Shop 
 
 - **GET** `/shop`: `ProductsController@index` : Get shop
 - **GET** `/shop/product/{id}`: `ProductsController@show` : Get product by id
-- **POST** `/add/physical/product`: `ProductsController@storePhysicalProduct` : Add physical product
+- **POST** `/add/physical/product`: `ProductsController@storePhysicalProduct` : Add physical product [`technical issues`]
+
+- - **_Fields_**
+
+- - - > fileuploader-list-preview[]  : `multi image uploader for product preview, max images = 2,  mimes:png,jpg,jpeg,ief`
+- - - > name
+- - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
+- - - > category : `default value = 1` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > description
+- - - > price
+- - - > quantity
+- - - > box_contents
+- - - > shipping_fee
+- - - > country_free_shipping : `id of country to allow free shipping for`
+
+
 - **POST** `/add/digital/product`: `ProductsController@storeDigitalProduct` : Add digital product
+
+- - **_Fields_**
+
+- - - > preview[]  : `multi image uploader for product preview, max images = 2,  mimes - png,jpg,jpeg,ief`
+- - - > productFile  : `digital product file uploader for the digital file being put up for sale , mimes  of digital product- png,jpg,jpeg,ief,mp3,mp4,mov,mkv,pdf,zip`
+- - - > name
+- - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
+- - - > category : `default value = 2` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > description
+- - - > price
+
 - **POST** `/add/custom/content`: `ProductsController@storeCustomContent` : Add custom product
+
+- - **_Fields_**
+
+- - - > fileuploader-list-preview[]  : `multi image uploader for product preview, max images = 2,  mimes:png,jpg,jpeg,ief`
+- - - > name
+- - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
+- - - > category : `default value = 3` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > description
+- - - > price
+- - - > quantity
+- - - > delivery_time
+
 - **POST** `/edit/product/{id}`: `ProductsController@update` : Edit Product
+
+- - > `where {id} is the product to edit`
+
+- - **_Fields_**
+- - - > name
+- - - > tags
+- - - > description
+- - - > price
+- - - > category :  `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > shipping_fee : `required if product type = physical`
+- - - > delivery_time : `required if product type = custom`
+- - - > quantity : `required if product type = physical`
+- - - > box_contents : `required if product type = physical product`
+- - - > country_free_shipping : `id of country to allow free shipping for`
+- - - > status : `1 / 0` : `if status is not det to 1 it automatically resolves to 0 which makes the product inactive`
+
 - **POST** `/delete/product/{id}`: `ProductsController@destroy`: Delete product
+
+- - > `where {id} is the product to delete`
+
 - **POST** `/buy/now/product`: `ProductsController@buy` : Buy product
+
+- - **_Fields_**
+
+- - - > id : `id of product to buy`
+- - - > description_custom_content : `required if product type = custom`
+- - - > address : `required if product type = physical`
+- - - > city : `required if product type = physical`
+- - - > zip : `required if product type = physical`
+- - - > phone : `required if product type = physical`
+
 - **POST** `/delivered/product/{id}`: `ProductsController@deliveredProduct` : Confirm ordered product as delivered
+
+- - - > `where {id} is the id of the delivered product`
+
 - **POST** `/reject/order/{id}`: `ProductsController@rejectOrder` : Reject product order
+
+- - - > `where {id} is the id of the order to reject`
+
+- **POST** `/product/download/{id}`: `ProductsController@download` : Download digital product
+
+- - - > `where {id} is the id of the digital product to download`
 
 ### Subscribers
 
@@ -523,9 +601,9 @@
 
 - - **_Fields_**
 
-- - - > id - `user to send tip`
-- - - > amount - `amount to send`
-- - - > payment_gateway_tip - `value = wallet`
+- - - > id : `user to send tip`
+- - - > amount : `amount to send`
+- - - > payment_gateway_tip : `value = wallet`
 
 ### Other User Profile
 
