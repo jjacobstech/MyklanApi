@@ -4,7 +4,7 @@
 
 ## **_Myklan Api Routes_**
 
-## API Endpoints
+## Endpoints 
 
 ### Public Routes
 
@@ -574,7 +574,7 @@
 
 - **POST** `/product/download/{id}`: `ProductsController@download` : Download digital product
 
-- - - > `where {id} is the id of the digital product to download`
+- - - > `where {id} is the id of the digital product to download` : `only works for digital products`
 
 ### Subscribers
 
@@ -597,7 +597,7 @@
 
 ### Tips
 
-- **POST** `/send/tip`: `TipController@send` : Send tip to a
+- **POST** `/send/tip`: `TipController@send` : Send tip to a user
 
 - - **_Fields_**
 
