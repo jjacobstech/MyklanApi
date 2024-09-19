@@ -4,7 +4,7 @@
 
 ## **_Myklan Api Routes_**
 
-## Endpoints 
+## Endpoints
 
 ### Public Routes
 
@@ -510,7 +510,6 @@
 - - - > shipping_fee
 - - - > country_free_shipping : `id of country to allow free shipping for`
 
-
 - **POST** `/add/digital/product`: `ProductsController@storeDigitalProduct` : Add digital product
 
 - - **_Fields_**
@@ -608,7 +607,6 @@
 - - - > zip : `zip file to send to user`
 - - - > epub : `epub file to send to user`
 
-
 - **GET** `/messages/search/creator`: `MessagesController@searchCreator` : Search for creator in messages page
 
 - - **_Fields_**
@@ -642,7 +640,7 @@
 
 ### Post Details
 
-- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post 
+- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post
 
 ### Add Funds
 
