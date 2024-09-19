@@ -239,6 +239,10 @@
 
 - - - > `where {id} is id of post to like`
 
+### Post Details
+
+- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post
+
 ### Dark Mode
 
 - **GET** `/mode/{mode}`: `HomeController@darkMode` : Switch between light and dark mode
@@ -326,9 +330,10 @@
 
 - - **_Fields_**
 
-- - - > id : `user to send to`
+- - - > id : `id of post or message to pay for`
 - - - > amount : `amount to pay`
-- - - > payment_gateway_ppv : `wallet`
+- - - > payment_gateway_ppv : `value = wallet`
+- - - > isMessage : `specifies if  payment is for a message or not. value = 1  if it is a message, leave empty if not a message`
 
 ### Comments
 
@@ -448,6 +453,11 @@
 
 - **GET** `/profile`: `UserController@profile` : Get user profile
 - **GET** `/profile/{media}`: `UserController@profile` : Get user profile showing {media} (where media is photos, videos, audio, shop, files, or epub)
+
+### Other User Profile
+
+- **GET** `/{slug}`: `UserController@userProfile` (where slug is a string) : Get profile of a user by username
+- **GET** `/{slug}/{media}`: `UserController@userProfile` : Get profile of a user by username along with specific media type(where slug is a string and media is photos, videos, audio, shop, files, or epub)
 
 ### Creator
 
@@ -632,15 +642,6 @@
 - - - > id : `user to send tip`
 - - - > amount : `amount to send`
 - - - > payment_gateway_tip : `value = wallet`
-
-### Other User Profile
-
-- **GET** `/{slug}`: `UserController@userProfile` (where slug is a string) : Get profile of a user by username
-- **GET** `/{slug}/{media}`: `UserController@userProfile` : Get profile of a user by username along with specific media type(where slug is a string and media is photos, videos, audio, shop, files, or epub)
-
-### Post Details
-
-- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post
 
 ### Add Funds
 
