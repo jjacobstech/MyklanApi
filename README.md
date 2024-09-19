@@ -188,6 +188,10 @@
 
 ### Posts
 
+ **GET** `/pin/post/{id}`: `UserController@pinPost` : Pin user owned post to profile.
+
+- - - > `where {id} is id of post to like`
+
 **GET** `/myposts`: `UserController@myPosts` : Returns the current user's posts.
 **POST** `/post`: `UpdatesController@create` : Creates a new post.
 
@@ -638,4 +642,17 @@
 
 ### Post Details
 
-- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post of a user subscribed to
+- **GET** `/{slug}/post/{id}`: `UserController@postDetail` (where slug is a creator username and id is id of the post) : View specific post 
+
+### Add Funds
+
+- **POST** `/add/funds`: `AddFundsController@send` : Fund account balance
+
+- - **_Fields_**
+
+- - - > amount : `amount to add to balance`
+- - - > payment_gateway : `currently = Flutterwave,Paystack; other gaveways are available but not currently activated` : `the other gateways are PayPal,,Stripe, Bank, CCBill, Coinpayments, Mercadopago, Mollie, Razorpay, Coinbase, NowPayments, Cardinity, Binance`
+- - - > image : `required if:payment_gateway = Bank, mimes:jpg,gif,png,jpe,jpeg`
+- - - > agree_terms :  `value = 1`
+
+### Withdrawals
