@@ -267,7 +267,7 @@
 - - - > message : `welcome message text`
 - - - > price_welcome_message : `set price for welcome message`
 
-### Welcome Message Media
+### Welcome Message Media [Use for settings media uploads operations in settings conversation]
 
 - **POST** `/upload/welcome/message/media`: `UploadMediaWelcomeMessageController@store` : Media uploader for welcome message
 
@@ -417,7 +417,7 @@
 
 ### Advertising
 
-- **GET** `/adverts`: `AdvertisingController@show` : Show adverts
+- **GET** `/adverts`: `AdvertisingController@show` : Show advertisements
 
 ### Likes
 
@@ -465,6 +465,10 @@
 
 - - - > `{type} can be empty if filtering in not needed`
 
+- - **_Fields_**
+
+- - - > q : `search query, can seach by name or username`
+
 ### Category
 
 - **GET** `/category/{slug}/{type?}`: `HomeController@category` : Get category
@@ -474,7 +478,7 @@
 
 - - - > `<https://api.myklan.africa/public/api/category/developer/free?gender=male>`
 
-- - - > `{type?} can be empty if filtering in not needed`
+- - - > `{type?} can be empty if filtering is not needed`
 
 ### Categories
 
@@ -487,9 +491,34 @@
 ### Notifications
 
 - **GET** `/notifications/{type?}`: `UserController@notifications` : Get notifications
-- - - > `where {type} -> likes, tips, mentions, subsciptions, Live streaming`
+- - - > `where {type} -> likes - 2, tips - 5, mentions - 16, subscriptions - 1, Live streaming - 14, comments - 3, ppvPost - 7, ppvMessage - 6, items - 15, verified - 18`
 
 - - - > `{type} can be empty if filtering in not needed`
+
+
+
+- **GET** `notifications/settings`: `UserController@notificationSettings` : Get view for Notifications Settings
+
+- **POST** `update/settings/notifications`: `UserController@settingsNotifications` : Update Notifications Settings
+
+- - **_Fields_**
+
+- - > `if fields are left empty value = no`
+
+- - - > notify_new_subscriber : `yes / no`
+- - - > notify_liked_post : `yes / no`
+- - - > notify_liked_comment : `yes / no`
+- - - > notify_commented_post : `yes / no`
+- - - > notify_new_tip : `yes / no`
+- - - > notify_new_ppv : `yes / no`
+- - - > notify_live_streaming : `yes / no`
+- - - > notify_mentions : `yes / no`
+- - - > email_new_subscriber : `yes / no`
+- - - > email_new_tip : `yes / no`
+- - - > email_new_ppv : `yes / no`
+- - - > notify_email_new_post : `yes / no`
+
+- **GET** `notifications/delete`: `UserController@deleteNotifications` : Delete Notifications
 
 ### Verification
 
