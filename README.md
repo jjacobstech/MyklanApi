@@ -524,6 +524,16 @@
 
 - **POST** `/settings/verify/account`: `UserController@verifyAccountSend` : Verify account
 
+- - **_Fields_**
+
+- - - > address
+- - - > city
+- - - > zip : `zip/postal code`
+- - - > image : `image of ID Document(passport or drivers license)`
+- - - > image_reverse : `back image of ID Document(passport or drivers license)`
+- - - > image_selfie : `image of user holding ID Documents and sign`
+- - - > form_w9 : `required if country id =  1 (US) that is if user is Us Citizen`
+
 ### Wallet
 
 - **GET** `/my/wallet`: `AddFundsController@wallet` : Get wallet and balance info
