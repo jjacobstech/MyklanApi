@@ -544,7 +544,7 @@
 
 - **GET** `/shop`: `ProductsController@index` : Get shop
 - **GET** `/shop/product/{id}`: `ProductsController@show` : Get product by id
-- **POST** `/add/physical/product`: `ProductsController@storePhysicalProduct` : Add physical product [`technical issues`]
+- **POST** `/add/physical/product`: `ProductsController@storePhysicalProduct` : Add physical product
 
 - - **_Fields_**
 
