@@ -72,7 +72,7 @@
 
 - - **_Fields_**
 
-- - - > email : `this is the email to send password reset link to`
+- - - > email : `this is the user email to send password reset link - must be registration email`
 
 ### User Endpoints
 
@@ -198,7 +198,7 @@
 
  **GET** `/pin/post/{id}`: `UserController@pinPost` : Pin user owned post to profile.
 
-- - - > `where {id} is id of post to like`
+- - - > `where {id} is id of post to pin`
 
 **GET** `/myposts`: `UserController@myPosts` : Returns the current user's posts.
 **POST** `/post`: `UpdatesController@create` : Creates a new post.
@@ -701,4 +701,25 @@
 - - - > image : `required if:payment_gateway = Bank, mimes:jpg,gif,png,jpe,jpeg`
 - - - > agree_terms :  `value = 1`
 
+### Payout Method
+
+-**GET** `settings/payout/method`: `UserController@payoutMethod` : Get User payment method
+
+-**POST** `settings/payout/method/{type}` : `UserController@payoutMethod` : Change user payment method type
+
+- - - > type : `payout method type - Bank,PayPal`
+
+- - **_Fields_**
+
+- - - > email_paypal : `paypal account email for paypal payout method type` : `Use for paypal payout`
+- - - > email_paypal_confirmation : `confirmation field use the same value in email_paypal` 
+
+- - - > bank_details : `bank account details for bank payout method type` : `Use for bank payout`
+
 ### Withdrawals
+
+-**GET** `settings/withdrawals` : UserController@withdrawals`
+
+-**POST** `settings/withdrawals` : `UserController@makeWithdrawals`
+
+-**POST** `delete/withdrawal/{id}` : `UserController@deleteWithdrawal`
