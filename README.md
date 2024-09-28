@@ -490,7 +490,7 @@
 
 ### Categories
 
-- **GET** `/categories`: `HomeController@categories` : Get list of categories
+- **GET** `/categories`: `HomeController@categories` : Get list of categories of Creators
 
 ### List Creators
 
@@ -559,7 +559,7 @@
 - - - > fileuploader-list-preview[]  : `multi image uploader for product preview, max images = 2,  mimes:png,jpg,jpeg,ief`
 - - - > name
 - - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
-- - - > category : `default value = 1` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > category : `default value = 1` : `product categories = 1 -> physical, 2 -> digital, 3 -> custom`
 - - - > description
 - - - > price
 - - - > quantity
@@ -575,7 +575,7 @@
 - - - > productFile  : `digital product file uploader for the digital file being put up for sale , mimes  of digital product- png,jpg,jpeg,ief,mp3,mp4,mov,mkv,pdf,zip`
 - - - > name
 - - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
-- - - > category : `default value = 2` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > category : `default value = 2` : `product categories = 1 -> physical, 2 -> digital, 3 -> custom`
 - - - > description
 - - - > price
 
@@ -586,7 +586,7 @@
 - - - > fileuploader-list-preview[]  : `multi image uploader for product preview, max images = 2,  mimes:png,jpg,jpeg,ief`
 - - - > name
 - - - > tags : `product tags , format - {1},{2},{3} where 1,2,3 are words seperated ba a comma respectively`
-- - - > category : `default value = 3` : `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > category : `default value = 3` : `product catgories = 1 -> physical, 2 -> digital, 3 -> custom`
 - - - > description
 - - - > price
 - - - > quantity
@@ -601,7 +601,7 @@
 - - - > tags
 - - - > description
 - - - > price
-- - - > category :  `product type = 1 -> physical, 2 -> digital, 3 -> custom`
+- - - > category :  `product categories = 1 -> physical, 2 -> digital, 3 -> custom`
 - - - > shipping_fee : `required if product type = physical`
 - - - > delivery_time : `required if product type = custom`
 - - - > quantity : `required if product type = physical`
