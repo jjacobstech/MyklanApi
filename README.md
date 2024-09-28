@@ -66,6 +66,14 @@
 - - - > old_password
 - - - > new_password(minimum of 6 characters)
 
+### Password Reset
+
+- **POST** `/password/email` : `ForgotPasswordController@sendResetLinkEmail` : `Send a password reset link to the user's email address.`
+
+- - **_Fields_**
+
+- - - > email : `this is the email to send password reset link to`
+
 ### User Endpoints
 
 - **GET** `/user` : Returns the current user's profile.
