@@ -724,6 +724,6 @@
 
 - - **_Fields_**
 
-- - - > amount : `amount user wants to withdraw` : `
+- - - > amount : `amount user wants to withdraw`
 
 -**POST** `delete/withdrawal/{id}` : `UserController@deleteWithdrawal`
