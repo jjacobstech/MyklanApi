@@ -703,16 +703,16 @@
 
 ### Payout Method
 
--**GET** `settings/payout/method`: `UserController@payoutMethod` : Get User payment method
+-**GET** `settings/payout/method`: `UserController@payoutMethod` : Get User payout methods
 
--**POST** `settings/payout/method/{type}` : `UserController@payoutMethod` : Change user payment method type
+-**POST** `settings/payout/method/{type}` : `UserController@payoutMethod` : Change user payout method type
 
 - - - > type : `payout method type - Bank,PayPal`
 
 - - **_Fields_**
 
 - - - > email_paypal : `paypal account email for paypal payout method type` : `Use for paypal payout`
-- - - > email_paypal_confirmation : `confirmation field use the same value in email_paypal` 
+- - - > email_paypal_confirmation : `confirmation field use the same value in email_paypal`
 
 - - - > bank_details : `bank account details for bank payout method type` : `Use for bank payout`
 
@@ -721,5 +721,9 @@
 -**GET** `settings/withdrawals` : UserController@withdrawals`
 
 -**POST** `settings/withdrawals` : `UserController@makeWithdrawals`
+
+- - **_Fields_**
+
+- - - > amount : `amount user wants to withdraw` : `
 
 -**POST** `delete/withdrawal/{id}` : `UserController@deleteWithdrawal`
