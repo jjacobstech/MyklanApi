@@ -138,6 +138,13 @@
 
 - **RESOURCE** `/stories`: `StoriesController` INACTIVE
 
+### Explore Post Page
+
+-**GET** `/explore` : `UpdatesController@explore` : Get explore post page
+
+- - > Parameters
+- - - > sort : `sort = free , unlockable,oldest`
+
 ### Countries
 
 - **GET** `/countries`: `CountriesStatesController@countries` : Returns a list of countries.
@@ -492,7 +499,7 @@
 
 - **GET** `/categories`: `HomeController@categories` : Get list of categories of Creators
 
-### List Creators
+### List Creators []
 
 - **GET** `/listcreators`: `HomeController@refreshCreators` : Get list of creators
 
@@ -718,12 +725,13 @@
 
 ### Withdrawals
 
--**GET** `settings/withdrawals` : UserController@withdrawals`
+-**GET** `settings/withdrawals` : UserController@withdrawals` : Get view for settings withdrawal page
 
--**POST** `settings/withdrawals` : `UserController@makeWithdrawals`
+-**POST** `settings/withdrawals` : `UserController@makeWithdrawals` : Make changes to withdrawal method
 
 - - **_Fields_**
 
 - - - > amount : `amount user wants to withdraw`
 
--**POST** `delete/withdrawal/{id}` : `UserController@deleteWithdrawal`
+-**POST** `delete/withdrawal/{id}` : `UserController@deleteWithdrawal` : Delete withdral method
+
