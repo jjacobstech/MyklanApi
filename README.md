@@ -53,6 +53,12 @@
 
 ### Private Routes (Require Authentication - Bearer Token)
 
+### Home
+
+**GET** `/my/home`: `HomeController@index` : Returns the current user's feed.
+
+- - > `Take Note that in the response if paid = true then the post should be unlocked for the user , if paid = false the user has not paid to view the post and the post should be locked if paid = free then the post is a free post and does not require payment`
+
 ### Logout
 
 - **GET** `/logout`: Handles logout.
@@ -208,11 +214,14 @@
 - - - > `where {id} is id of post to pin`
 
 **GET** `/myposts`: `UserController@myPosts` : Returns the current user's posts.
+
 **POST** `/post`: `UpdatesController@create` : Creates a new post.
 
 - **_Fields _**
 
-- - - > fileuploader-list-photo[] : `multi file uploader for posting images, audio, videos : max 500MB`
+- - > Note : file mimes check must be done in front end
+
+- - - > fileuploader-list-photo[] : `multi file uploader for posting images, audio, videos : max 500MB` : `mimes:jpeg,png,jpg,ief, video/mp4, audio/x-matroska, audio/mpeg`
 - - - > zip : `zip file for upload`
 - - - > epub : `epub file upload`
 - - - > description  : `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
