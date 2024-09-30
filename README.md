@@ -216,7 +216,7 @@
 - - - > zip : `zip file for upload`
 - - - > epub : `epub file upload`
 - - - > description  : `video url from youtube can also be used here - Format :  url = https://www.youtube.com/watch?v=niaMHbhsV5E  ,Extra text = Pretty by Astrid s. This will give https://www.youtube.com/watch?v=niaMHbhsV5E Pretty by Astrid s`
-- - - > title
+- - - > title : `Post title`
 - - - > price  : `leave empty if not adding price`
 
 **GET** `/post/edit/{id}`: `UpdatesController@edit`: Returns a post for editing or Viewing by ID.
