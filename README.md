@@ -712,7 +712,7 @@
 
 - - **_Fields_**
 
-- - > Not callback is automatic
+- - > Callback is automatic
 - - - > amount : `amount to add to balance`
 - - - > payment_gateway : `currently = Flutterwave,Paystack; other gaveways are available but not currently activated` : `the other gateways are PayPal,,Stripe, Bank, CCBill, Coinpayments, Mercadopago, Mollie, Razorpay, Coinbase, NowPayments, Cardinity, Binance`
 - - - > image : `required if:payment_gateway = Bank, mimes:jpg,gif,png,jpe,jpeg`
