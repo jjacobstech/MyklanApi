@@ -361,19 +361,17 @@
 
 ### Comments
 
-- **GET** `/load/comments`: `CommentsController@loadmore` : Get comments for a post
+- **GET** `/load/comments/{id}`: `CommentsController@loadmore` : Get comments for a post
 
-- - **_Fields_**
-
-- - - > post_id  : `post to load comment from`
+- - - > id  : `post to load comment from`
 
 - **POST** `/comment/post`: `CommentsController@store` : Comment on a post
 
 - - **_Fields_**
 
 - - - > post_id : `post to comment on`
-- - - > comment : `comment from user`
-- - - > isReply : `id of comment / reply, to reply to` :  `this format [@techdemigod39 Happy testing reply ]should he used  when commenting to a reply under a comment to form a thread`
+- - - > comment : `comment from user` :  `this format [@techdemigod39 Happy testing reply ]should he used  when commenting to a reply under a comment to form a thread`
+- - - > isReply : `id of comment / reply, to reply to`
 
 - **POST** `/edit/comment`: `CommentsController@edit` : Edit comment
 
